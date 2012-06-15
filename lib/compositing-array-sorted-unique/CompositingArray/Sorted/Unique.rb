@@ -1,16 +1,6 @@
 
 class ::CompositingArray::Sorted::Unique < ::CompositingArray::Unique
 
-  include CompositingArray::Sorted::Interface
-
-  ###########
-  #  uniq!  #
-  ###########
-
-  def uniq!
-    
-    return self
-    
-  end
+  include ::CompositingArray::Sorted::Unique::Interface
   
 end
