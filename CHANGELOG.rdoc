@@ -6,3 +6,8 @@ Initial release.
 == 3/18/12
 
 Added hooks for subclassing.
+
+== 6/15/12
+
+Moved hooks out to sorted-unique-array and utilized sorted-unique-array as foundation.
+Added alias from CompositingArray::Unique::Sorted to CompositingArray::Sorted::Unique.

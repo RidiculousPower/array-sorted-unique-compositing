@@ -21,6 +21,8 @@ end
 class ::CompositingArray::Sorted::Unique < ::CompositingArray::Unique
 end
 
+::CompositingArray::Unique::Sorted = ::CompositingArray::Sorted::Unique
+
 basepath = 'compositing-array-sorted-unique/CompositingArray/Sorted/Unique'
 
 files = [
