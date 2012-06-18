@@ -12,8 +12,8 @@ describe ::CompositingArray::Sorted::Unique do
   ################
 
   it 'can add initialize with an ancestor, inheriting its values and linking to it as a child' do
-  
-    cascading_composite_array = ::CompositingArray::Sorted::Unique.new
+
+    cascading_composite_array = ::CompositingArray::Sorted::Unique.new( nil, self )
 
     cascading_composite_array.instance_variable_get( :@parent_composite_object ).should == nil
     cascading_composite_array.should == []

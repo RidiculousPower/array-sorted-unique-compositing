@@ -11,3 +11,7 @@ Added hooks for subclassing.
 
 Moved hooks out to sorted-unique-array and utilized sorted-unique-array as foundation.
 Added alias from CompositingArray::Unique::Sorted to CompositingArray::Sorted::Unique.
+
+== 6/18/12
+
+Fixes for :initialize that required changing module include order and changing subclass inheritance.

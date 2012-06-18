@@ -18,7 +18,7 @@ end
 # subclass that should be in its place. That way ::CompositingArray::Sorted::Unique::Interface
 # will be created anew rather than pointing to ::CompositingArray::Unique::Interface.
 #
-class ::CompositingArray::Sorted::Unique < ::CompositingArray::Unique
+class ::CompositingArray::Sorted::Unique < ::HookedArray
 end
 
 ::CompositingArray::Unique::Sorted = ::CompositingArray::Sorted::Unique

@@ -1,5 +1,5 @@
 
-class ::CompositingArray::Sorted::Unique < ::CompositingArray::Unique
+class ::CompositingArray::Sorted::Unique < ::HookedArray
 
   include ::CompositingArray::Sorted::Unique::Interface
   
