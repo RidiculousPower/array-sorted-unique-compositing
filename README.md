@@ -1,10 +1,10 @@
 # Sorted Unique Compositing Array #
 
-http://rubygems.org/gems/compositing-array-sorted-unique
+http://rubygems.org/gems/array-sorted-unique-compositing
 
 # Description #
 
-Provides CompositingArray::Sorted::Unique.
+Provides Array::Sorted::Unique::Compositing.
 
 # Summary #
 
@@ -12,13 +12,13 @@ An implementation of Array that permits chaining, where children inherit changes
 
 # Install #
 
-* sudo gem install compositing-array-sorted-unique
+* sudo gem install array-sorted-unique-compositing
 
 # Usage #
 
 ```ruby
-compositing_array = CompositingArray::Sorted::Unique.new
-sub_compositing_array = CompositingArray::Sorted::Unique.new( compositing_array )
+compositing_array = Array::Sorted::Unique::Compositing.new
+sub_compositing_array = Array::Sorted::Unique::Compositing.new( compositing_array )
 
 compositing_array.push( :A )
 # compositing_array

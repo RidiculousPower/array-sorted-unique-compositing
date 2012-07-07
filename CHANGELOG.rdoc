@@ -9,8 +9,8 @@ Added hooks for subclassing.
 
 == 6/15/12
 
-Moved hooks out to sorted-unique-array and utilized sorted-unique-array as foundation.
-Added alias from CompositingArray::Unique::Sorted to CompositingArray::Sorted::Unique.
+Moved hooks out to array-sorted-unique and utilized array-sorted-unique as foundation.
+Added alias from Array::Unique::Compositing::Sorted to Array::Sorted::Unique::Compositing.
 
 == 6/18/12
 
