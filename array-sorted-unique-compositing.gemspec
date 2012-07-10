@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
 
   spec.name                      =  'array-sorted-unique-compositing'
   spec.rubyforge_project         =  'array-sorted-unique-compositing'
-  spec.version                   =  '1.0.0'
+  spec.version                   =  '1.0.2'
 
   spec.summary                   =  "Provides Array::Sorted::Unique::Compositing."
   spec.description               =  "An implementation of Array that permits chaining, where children inherit changes to parent and where parent settings can be overridden in children, and that retains sorted order, ensuring inserted values are unique."
