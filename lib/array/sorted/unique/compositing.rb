@@ -1,4 +1,6 @@
 
+begin ; require 'development' ; rescue ; end
+
 require 'array-sorted-compositing'
 require 'array-unique-compositing'
 
