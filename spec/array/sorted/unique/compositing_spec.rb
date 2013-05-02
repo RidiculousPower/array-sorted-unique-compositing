@@ -603,39 +603,34 @@ describe ::Array::Sorted::Unique::Compositing do
 
   it 'can replace by collect/map' do
 
-    cascading_composite_array = ::Array::Sorted::Unique::Compositing.new
-    sub_cascading_composite_array = ::Array::Sorted::Unique::Compositing.new( cascading_composite_array )
+    cascading_composite_array = ::Array::Sorted::Compositing.new
+    sub_cascading_composite_array = ::Array::Sorted::Compositing.new( cascading_composite_array )
 
     cascading_composite_array.push( :A, :B, :C )
     cascading_composite_array.should == [ :A, :B, :C ]
     sub_cascading_composite_array.should == [ :A, :B, :C ]
-    cascading_composite_array.sort! do |a, b|
-      if a < b
-        1
-      elsif a > b
-        -1
-      elsif a == b
-        0
-      end
-    end
+    cascading_composite_array.sort!( & ::Array::ReverseSortBlock )
+    cascading_composite_array.should == [ :C, :B, :A ]
+    sub_cascading_composite_array.should == [ :C, :B, :A ]
+
+    sub_cascading_composite_array.sort!
+    cascading_composite_array.should == [ :C, :B, :A ]
+    sub_cascading_composite_array.should == [ :C, :B, :A ]
+
+    sub_cascading_composite_array.sort!( & ::Array::SortBlock )
+    cascading_composite_array.should == [ :C, :B, :A ]
+    sub_cascading_composite_array.should == [ :A, :B, :C ]
+
+    cascading_composite_array.sort!( & ::Array::SortBlock )
     cascading_composite_array.should == [ :A, :B, :C ]
     sub_cascading_composite_array.should == [ :A, :B, :C ]
 
-    sub_cascading_composite_array.sort! do |a, b|
-      if a < b
-        -1
-      elsif a > b
-        1
-      elsif a == b
-        0
-      end
-    end
+    sub_cascading_composite_array.sort!( & ::Array::ReverseSortBlock )
     cascading_composite_array.should == [ :A, :B, :C ]
-    sub_cascading_composite_array.should == [ :A, :B, :C ]
-
-    cascading_composite_array.sort!
+    sub_cascading_composite_array.should == [ :C, :B, :A ]
+    cascading_composite_array.sort!( & ::Array::SortBlock )
     cascading_composite_array.should == [ :A, :B, :C ]
-    sub_cascading_composite_array.should == [ :A, :B, :C ]
+    sub_cascading_composite_array.should == [ :C, :B, :A ]
 
   end
 
@@ -645,8 +640,8 @@ describe ::Array::Sorted::Unique::Compositing do
 
   it 'can replace by collect/map' do
 
-    cascading_composite_array = ::Array::Sorted::Unique::Compositing.new
-    sub_cascading_composite_array = ::Array::Sorted::Unique::Compositing.new( cascading_composite_array )
+    cascading_composite_array = ::Array::Sorted::Compositing.new
+    sub_cascading_composite_array = ::Array::Sorted::Compositing.new( cascading_composite_array )
 
     cascading_composite_array.push( :A, :B, :C )
     cascading_composite_array.should == [ :A, :B, :C ]
@@ -654,28 +649,28 @@ describe ::Array::Sorted::Unique::Compositing do
     cascading_composite_array.sort_by! do |object|
       case object
       when :A
-        :B
+        1
       when :B
-        :A
+        3
       when :C
-        :C
+        2
       end
     end
-    cascading_composite_array.should == [ :A, :B, :C ]
-    sub_cascading_composite_array.should == [ :A, :B, :C ]
+    cascading_composite_array.should == [ :A, :C, :B ]
+    sub_cascading_composite_array.should == [ :A, :C, :B ]
 
     sub_cascading_composite_array.sort_by! do |object|
       case object
       when :A
-        :C
+        3
       when :B
-        :B
+        2
       when :C
-        :A
+        1
       end
     end
-    cascading_composite_array.should == [ :A, :B, :C ]
-    sub_cascading_composite_array.should == [ :A, :B, :C ]
+    cascading_composite_array.should == [ :A, :C, :B ]
+    sub_cascading_composite_array.should == [ :C, :B, :A ]
 
     cascading_composite_array.sort_by!.is_a?( Enumerator ).should == true
 
